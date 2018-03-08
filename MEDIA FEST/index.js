@@ -1,6 +1,6 @@
-﻿$(".dropdown-button").dropdown({ hover: true });
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $('.carousel.carousel-slider').carousel({ fullWidth: true });
-    $('.carousel').carousel();
+    $(".dropdown-button").dropdown({ hover: true });
+    $('.carousel.carousel-slider').carousel();
 });
+
