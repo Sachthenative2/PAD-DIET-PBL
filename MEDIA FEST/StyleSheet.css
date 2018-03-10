@@ -1,7 +1,12 @@
-﻿body {
+﻿main {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url(../Downloads/qqxsginternet20censorship.gif);
+    background-repeat: round;
+    background-position: center;
+    background-attachment: fixed;
+    flex: 1 0 auto;
 }
 
 main {
