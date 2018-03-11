@@ -5,6 +5,13 @@
     $('.carousel').carousel();
 });
 
-function load(){
-    window.confirm("You have entered the Media Censorship website.\n\nDesigned by, Ian Boraks");
+function load() {
+    var x = confirm("You have entered the Media Censorship website.\n\nDesigned by, Ian Boraks");
+    if (r == true) {
+        break;
+    } else {
+        window.alert("Than get OUT!");
+        break;
+    }
+
 }
