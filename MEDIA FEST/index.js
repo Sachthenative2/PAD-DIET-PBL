@@ -4,4 +4,3 @@
     $(".dropdown-button").dropdown({ hover: true });
     $('.carousel').carousel();
 });
-
