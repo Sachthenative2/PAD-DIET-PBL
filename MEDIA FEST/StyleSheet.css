@@ -4,7 +4,38 @@
     flex-direction: column;
     background-image: url(../Downloads/qqxsginternet20censorship.gif);
     background-repeat: round;
+    background-color: black;
     background-position: center;
     background-attachment: fixed;
     flex: 1 0 auto;
+}
+
+#parent {
+    height: 50vh;
+    margin-bottom: 5px;
+}
+
+#floater {
+    float: none;
+    height: 50%;
+    width: 100%;
+    margin-bottom: -50px;
+}
+
+#child {
+    clear: both;
+    height: auto;
+}
+
+#parent1 {
+    position: relative;
+}
+
+#child1 {
+    position: absolute;
+    top: 40vh;
+    left: 50vw;
+    height: 50vh;
+    width: 50%;
+    margin: -15% 0 0 -25%;
 }
