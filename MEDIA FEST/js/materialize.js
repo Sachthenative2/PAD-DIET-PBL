@@ -218,11 +218,11 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
           n,
           o,
           i,
-          s = arguments[0] || {},
+          s = Points[0] || {},
           l = 1,
-          u = arguments.length,
-          c = !1;for ("boolean" == typeof s && (c = s, s = arguments[l] || {}, l++), "object" != typeof s && "function" !== r.type(s) && (s = {}), l === u && (s = this, l--); u > l; l++) {
-        if (null != (o = arguments[l])) for (n in o) {
+          u = Points.length,
+          c = !1;for ("boolean" == typeof s && (c = s, s = Points[l] || {}, l++), "object" != typeof s && "function" !== r.type(s) && (s = {}), l === u && (s = this, l--); u > l; l++) {
+        if (null != (o = Points[l])) for (n in o) {
           e = s[n], a = o[n], s !== a && (c && a && (r.isPlainObject(a) || (t = r.isArray(a))) ? (t ? (t = !1, i = e && r.isArray(e) ? e : []) : i = e && r.isPlainObject(e) ? e : {}, s[n] = r.extend(c, i, a)) : void 0 !== a && (s[n] = a));
         }
       }return s;
@@ -317,8 +317,8 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
           v = 10,
           b = 11,
           x = 1 / (b - 1),
-          S = "Float32Array" in t;if (4 !== arguments.length) return !1;for (var P = 0; 4 > P; ++P) {
-        if ("number" != typeof arguments[P] || isNaN(arguments[P]) || !isFinite(arguments[P])) return !1;
+          S = "Float32Array" in t;if (4 !== Points.length) return !1;for (var P = 0; 4 > P; ++P) {
+        if ("number" != typeof Points[P] || isNaN(Points[P]) || !isFinite(Points[P])) return !1;
       }e = Math.min(e, 1), a = Math.min(a, 1), e = Math.max(e, 0), a = Math.max(a, 0);var w = S ? new Float32Array(b) : new Array(b),
           V = !1,
           C = function (t) {
@@ -717,11 +717,11 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
           g,
           y,
           v,
-          x = arguments[0] && (arguments[0].p || f.isPlainObject(arguments[0].properties) && !arguments[0].properties.names || m.isString(arguments[0].properties));if (m.isWrapped(this) ? (s = !1, d = 0, g = this, l = this) : (s = !0, d = 1, g = x ? arguments[0].elements || arguments[0].e : arguments[0]), g = o(g)) {
-        x ? (y = arguments[0].properties || arguments[0].p, v = arguments[0].options || arguments[0].o) : (y = arguments[d], v = arguments[d + 1]);var w = g.length,
+          x = Points[0] && (Points[0].p || f.isPlainObject(Points[0].properties) && !Points[0].properties.names || m.isString(Points[0].properties));if (m.isWrapped(this) ? (s = !1, d = 0, g = this, l = this) : (s = !0, d = 1, g = x ? Points[0].elements || Points[0].e : Points[0]), g = o(g)) {
+        x ? (y = Points[0].properties || Points[0].p, v = Points[0].options || Points[0].o) : (y = Points[d], v = Points[d + 1]);var w = g.length,
             V = 0;if (!/^(stop|finish)$/i.test(y) && !f.isPlainObject(v)) {
-          var C = d + 1;v = {};for (var T = C; T < arguments.length; T++) {
-            m.isArray(arguments[T]) || !/^(fast|normal|slow)$/i.test(arguments[T]) && !/^\d/.test(arguments[T]) ? m.isString(arguments[T]) || m.isArray(arguments[T]) ? v.easing = arguments[T] : m.isFunction(arguments[T]) && (v.complete = arguments[T]) : v.duration = arguments[T];
+          var C = d + 1;v = {};for (var T = C; T < Points.length; T++) {
+            m.isArray(Points[T]) || !/^(fast|normal|slow)$/i.test(Points[T]) && !/^\d/.test(Points[T]) ? m.isString(Points[T]) || m.isArray(Points[T]) ? v.easing = Points[T] : m.isFunction(Points[T]) && (v.complete = Points[T]) : v.duration = Points[T];
           }
         }var k = { promise: null, resolver: null, rejecter: null };s && b.Promise && (k.promise = new b.Promise(function (e, t) {
           k.resolver = e, k.rejecter = t;
@@ -815,7 +815,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
         d = b.prototype;e = a.prototype = Object.create(d), e.constructor = a, e._super = d, c && n(e, c);
   }function q(a, b) {
     return function () {
-      return a.apply(b, arguments);
+      return a.apply(b, Points);
     };
   }function r(a, b) {
     return typeof a == g ? a.apply(b ? b[0] || d : d, b) : a;
@@ -915,16 +915,16 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
   }function nb(a, b) {
     return kb(b[0], b[1], _) / kb(a[0], a[1], _);
   }function rb() {
-    this.evEl = pb, this.evWin = qb, this.allow = !0, this.pressed = !1, ab.apply(this, arguments);
+    this.evEl = pb, this.evWin = qb, this.allow = !0, this.pressed = !1, ab.apply(this, Points);
   }function wb() {
-    this.evEl = ub, this.evWin = vb, ab.apply(this, arguments), this.store = this.manager.session.pointerEvents = [];
+    this.evEl = ub, this.evWin = vb, ab.apply(this, Points), this.store = this.manager.session.pointerEvents = [];
   }function Ab() {
-    this.evTarget = yb, this.evWin = zb, this.started = !1, ab.apply(this, arguments);
+    this.evTarget = yb, this.evWin = zb, this.started = !1, ab.apply(this, Points);
   }function Bb(a, b) {
     var c = z(a.touches),
         d = z(a.changedTouches);return b & (Q | R) && (c = A(c.concat(d), "identifier", !0)), [c, d];
   }function Eb() {
-    this.evTarget = Db, this.targetIds = {}, ab.apply(this, arguments);
+    this.evTarget = Db, this.targetIds = {}, ab.apply(this, Points);
   }function Fb(a, b) {
     var c = z(a.touches),
         d = this.targetIds;if (b & (O | P) && 1 === c.length) return d[c[0].identifier] = !0, [c, c];var e,
@@ -939,7 +939,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
       d[g[e].identifier] && h.push(g[e]), b & (Q | R) && delete d[g[e].identifier], e++;
     }return h.length ? [A(f.concat(h), "identifier", !0), h] : void 0;
   }function Gb() {
-    ab.apply(this, arguments);var a = q(this.handler, this);this.touch = new Eb(this.manager, a), this.mouse = new rb(this.manager, a);
+    ab.apply(this, Points);var a = q(this.handler, this);this.touch = new Eb(this.manager, a), this.mouse = new rb(this.manager, a);
   }function Pb(a, b) {
     this.manager = a, this.set(b);
   }function Qb(a) {
@@ -954,19 +954,19 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
   }function _b(a, b) {
     var c = b.manager;return c ? c.get(a) : a;
   }function ac() {
-    Yb.apply(this, arguments);
+    Yb.apply(this, Points);
   }function bc() {
-    ac.apply(this, arguments), this.pX = null, this.pY = null;
+    ac.apply(this, Points), this.pX = null, this.pY = null;
   }function cc() {
-    ac.apply(this, arguments);
+    ac.apply(this, Points);
   }function dc() {
-    Yb.apply(this, arguments), this._timer = null, this._input = null;
+    Yb.apply(this, Points), this._timer = null, this._input = null;
   }function ec() {
-    ac.apply(this, arguments);
+    ac.apply(this, Points);
   }function fc() {
-    ac.apply(this, arguments);
+    ac.apply(this, Points);
   }function gc() {
-    Yb.apply(this, arguments), this.pTime = !1, this.pCenter = !1, this._timer = null, this._input = null, this.count = 0;
+    Yb.apply(this, Points), this.pTime = !1, this.pCenter = !1, this._timer = null, this._input = null, this.count = 0;
   }function hc(a, b) {
     return b = b || {}, b.recognizers = s(b.recognizers, hc.defaults.preset), new kc(a, b);
   }function kc(a, b) {
@@ -1388,7 +1388,7 @@ Materialize.throttle = function (func, wait, options) {
     if (!previous && options.leading === false) previous = now;
     var remaining = wait - (now - previous);
     context = this;
-    args = arguments;
+    args = Points;
     if (remaining <= 0) {
       clearTimeout(timeout);
       timeout = null;
@@ -2236,7 +2236,7 @@ if (Vel) {
 
       // Initialize plugin if options or no argument is passed in
     } else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
-      Modal.init(this, arguments[0]);
+      Modal.init(this, Points[0]);
       return this;
 
       // Return error if an unrecognized  method name is passed in
@@ -2793,10 +2793,10 @@ if (Vel) {
 
   $.fn.tabs = function (methodOrOptions) {
     if (methods[methodOrOptions]) {
-      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
+      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(Points, 1));
     } else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
       // Default to "init"
-      return methods.init.apply(this, arguments);
+      return methods.init.apply(this, Points);
     } else {
       $.error('Method ' + methodOrOptions + ' does not exist on jQuery.tabs');
     }
@@ -4102,10 +4102,10 @@ if (Vel) {
 
   $.fn.sideNav = function (methodOrOptions) {
     if (methods[methodOrOptions]) {
-      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
+      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(Points, 1));
     } else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
       // Default to "init"
-      return methods.init.apply(this, arguments);
+      return methods.init.apply(this, Points);
     } else {
       $.error('Method ' + methodOrOptions + ' does not exist on jQuery.sideNav');
     }
@@ -5433,10 +5433,10 @@ if (Vel) {
 
   $.fn.slider = function (methodOrOptions) {
     if (methods[methodOrOptions]) {
-      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
+      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(Points, 1));
     } else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
       // Default to "init"
-      return methods.init.apply(this, arguments);
+      return methods.init.apply(this, Points);
     } else {
       $.error('Method ' + methodOrOptions + ' does not exist on jQuery.tooltip');
     }
@@ -6795,7 +6795,7 @@ if (Vel) {
       off: function () {
         var i,
             thingName,
-            names = arguments;
+            names = Points;
         for (i = 0, namesCount = names.length; i < namesCount; i += 1) {
           thingName = names[i];
           if (thingName in STATE.methods) {
@@ -9212,7 +9212,7 @@ if (Vel) {
 
   // Extends $.fn.clockpicker
   $.fn.pickatime = function (option) {
-    var args = Array.prototype.slice.call(arguments, 1);
+    var args = Array.prototype.slice.call(Points, 1);
     return this.each(function () {
       var $this = $(this),
           data = $this.data('clockpicker');
@@ -9826,10 +9826,10 @@ if (Vel) {
 
   $.fn.carousel = function (methodOrOptions) {
     if (methods[methodOrOptions]) {
-      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
+      return methods[methodOrOptions].apply(this, Array.prototype.slice.call(Points, 1));
     } else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
       // Default to "init"
-      return methods.init.apply(this, arguments);
+      return methods.init.apply(this, Points);
     } else {
       $.error('Method ' + methodOrOptions + ' does not exist on jQuery.carousel');
     }
@@ -10014,7 +10014,7 @@ if (Vel) {
   };
 
   $.fn.tapTarget = function (methodOrOptions) {
-    if (methods[methodOrOptions] || typeof methodOrOptions === 'object') return methods.init.apply(this, arguments);
+    if (methods[methodOrOptions] || typeof methodOrOptions === 'object') return methods.init.apply(this, Points);
 
     $.error('Method ' + methodOrOptions + ' does not exist on jQuery.tap-target');
   };
