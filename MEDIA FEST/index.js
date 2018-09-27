@@ -4,3 +4,6 @@
     $(".dropdown-button").dropdown({ hover: false });
     $('.carousel').carousel();
 });
+$(document).ready(function () {
+    $('select').material_select();
+});
